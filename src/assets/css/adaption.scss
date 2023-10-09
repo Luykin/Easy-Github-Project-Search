@@ -1,0 +1,61 @@
+@use "sass:math";
+
+$breakpoints: (
+  "mini": "only screen and ( min-width: 0) and ( max-width: 340px)",
+  "phone": "only screen and ( min-width: 0) and ( max-width: 600px)",
+  "pad": "only screen and ( min-width: 600px) and ( max-width: 1200px)",
+  "mac": "only screen and ( min-width: 1200px) and ( max-width: 1450px)",
+  "overmac": "only screen and ( min-width: 1600px)",
+  "pc": "only screen and ( min-width: 1200px) and ( max-width: 1920px)",
+  "tv": "only screen and ( min-width: 1920px)",
+  "minH": "only screen and ( max-height: 700px)",
+) !default;
+@mixin device($breakpointList...) {
+  @each $breakpoint in $breakpointList {
+    $query: map-get($breakpoints, $breakpoint);
+    @if not $query {
+      @error 'No value found for `#{$breakpoint}`. Please make sure it is  defined in ` $breakpoints ` map . ';
+    }
+    @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+      @content;
+    }
+  }
+}
+
+@function size($n) {
+  @return math.div($n, 14) * 1rem;
+}
+
+@function fontsize($n) {
+  @return math.div($n, 14) * 1rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai {
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.js {
+  justify-content: flex-start;
+}
+
+.sp {
+  justify-content: space-between;
+}
+
+.je {
+  justify-content: flex-end;
+}
+
+.fw {
+  flex-wrap: wrap;
+}

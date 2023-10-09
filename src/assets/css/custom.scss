@@ -1,0 +1,32 @@
+@import "./adaption.scss";
+div {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  scroll-behavior: smooth;
+}
+
+.beautiful-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #0f152b;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(90, 108, 180, 0.4);
+    border-radius: 10px;
+  }
+}
