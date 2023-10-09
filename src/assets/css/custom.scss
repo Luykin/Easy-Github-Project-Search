@@ -1,4 +1,5 @@
 @import "./adaption.scss";
+
 div {
   box-sizing: border-box;
 }
@@ -12,6 +13,11 @@ body,
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 12px;
   scroll-behavior: smooth;
+  @extend .beautiful-scrollbar;
+}
+
+#root {
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
 .beautiful-scrollbar {
@@ -21,12 +27,12 @@ body,
   }
 
   &::-webkit-scrollbar-track {
-    background: #0f152b;
+    background: #fed6e3;
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(90, 108, 180, 0.4);
+    background: rgba(152, 90, 180, 0.4);
     border-radius: 10px;
   }
 }
